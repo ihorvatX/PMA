@@ -36,13 +36,14 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:layout_marginEnd="5dp"
+        app:boxStrokeColor="@color/blue"
        >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/inptName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Ime" />
+            android:hint="@string/name" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -57,7 +58,8 @@
             android:id="@+id/inptSurname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Prezime" />
+            android:hint="@string/surname"
+            />
     </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
@@ -88,7 +90,7 @@
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Datum rođenja"
+        android:text="@string/birth_date"
         android:layout_weight=".7"
         />
 
@@ -98,7 +100,7 @@
             android:layout_height="48dp"
             android:inputType="date"
             android:layout_weight="1.3"
-            android:hint="Unesite datum rođenja"
+            android:hint="@string/enter_birth_date"
             />
     </LinearLayout>
 
@@ -118,7 +120,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Dalje"
+        android:text="@string/next"
         android:onClick="CourseInfo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -8,9 +8,15 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.personalinfoactivity.models.CourseInfo;
+import com.example.personalinfoactivity.models.Storage;
+import com.example.personalinfoactivity.models.Student;
 import com.example.personalinfoactivity.models.StudentInfo;
 
 public class SummaryActivity extends AppCompatActivity {
+
+    private String ime;
+    private String prezime;
+    private String predmet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +38,9 @@ public class SummaryActivity extends AppCompatActivity {
         TextView courseHours = findViewById(R.id.courseHours);
         TextView courseHoursLV = findViewById(R.id.courseHoursLV);
 
+        ime = userInfo.Name;
+        predmet = courseInfo.Course;
+        prezime = userInfo.Surname;
 
         studentName.setText(userInfo.Name);
         studentSurname.setText(userInfo.Surname);
@@ -43,13 +52,16 @@ public class SummaryActivity extends AppCompatActivity {
         courseYear.setText(courseInfo.CourseYear);
         courseHours.setText(courseInfo.CourseHours);
         courseHoursLV.setText(courseInfo.CourseHoursLV);
-
     }
 
 
     public void ShowHomepage(View view)
     {
-        Intent i = new Intent(this, PersonalInfoActivity.class);
+        Student student = new Student(ime, prezime, predmet);
+        Storage spremnik = Storage.getInstance();
+        spremnik.setStudents(student);
+
+        Intent i = new Intent(this, HomeActivity.class);
         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
         startActivity(i);

@@ -32,7 +32,7 @@
                 android:id="@+id/inptTeacherName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Ime profesora" />
+                android:hint="@string/professor_name" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -47,7 +47,7 @@
                 android:id="@+id/inptTxt2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Prezime profesora" />
+                android:hint="@string/professor_surname" />
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
@@ -86,7 +86,7 @@
                 android:id="@+id/inptCourseTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Naziv predmeta" />
+                android:hint="@string/course" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -101,7 +101,7 @@
                 android:id="@+id/inptCourseYear"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Akademska godina"
+                android:hint="@string/academic_year"
                 android:inputType="number"
                 />
         </com.google.android.material.textfield.TextInputLayout>
@@ -141,7 +141,7 @@
                 android:id="@+id/inptCourseHours"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Broj sati predavanja"
+                android:hint="@string/number_of_lecture_hours"
                 android:inputType="number"
                 />
         </com.google.android.material.textfield.TextInputLayout>
@@ -158,7 +158,7 @@
                 android:id="@+id/inptCourseHoursLV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Broj sati vježba"
+                android:hint="@string/number_of_lecture_hours_LV"
                 android:inputType="number"
                 />
         </com.google.android.material.textfield.TextInputLayout>
@@ -169,7 +169,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Dalje"
+        android:text="@string/next"
         android:onClick="ShowDetails"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
