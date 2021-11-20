@@ -1,3 +1,25 @@
 <resources>
-    <string name="app_name">PersonalInfoActivity</string>
+    <string name="app_name">Osobne Informacije</string>
+    <string name="image">image</string>
+    <string name="name">Ime</string>
+    <string name="surname">Prezime</string>
+    <string name="birth_date">Datum rođenja</string>
+    <string name="enter_birth_date">Uneste datum rođenja</string>
+    <string name="next">Dalje</string>
+    <string name="course">Predmet</string>
+    <string name="professor_name">Ime profesora</string>
+    <string name="professor_surname">Prezime profesora</string>
+    <string name="current_year">Trentuna godina</string>
+    <string name="number_of_lecture_hours">Broj sati predavanja</string>
+    <string name="number_of_lecture_hours_LV">Broj sati LV-a</string>
+    <string name="personal_info">Osobne informacije</string>
+    <string name="date">Datum</string>
+    <string name="student_info">Akademske informacije</string>
+    <string name="academic_year">Akademska godina</string>
+    <string name="horus_of_lectures">Sati predavanja</string>
+    <string name="horus_of_lectures_LV">Sati LV-a</string>
+    <string name="beginning">Početak</string>
+    <string name="students">Studenti</string>
+    <string name="create_student">Stvori studenta</string>
+    <string name="language">Jezik</string>
 </resources>
