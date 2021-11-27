@@ -45,7 +45,7 @@ public class StudentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         {
             StudentViewHolder studentViewHolder = (StudentViewHolder) viewHolder;
             Student data = (Student) dataList.get(position);
-            studentViewHolder.tvName.setText(((Student) dataList.get(position)).getIme());
+            studentViewHolder.tvName.setText((data).getIme());
             studentViewHolder.tvSurname.setText(((Student) dataList.get(position)).getPrezime());
             studentViewHolder.tvCourse.setText(((Student) dataList.get(position)).getPredmet());
         }
@@ -72,7 +72,7 @@ public class StudentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     }
 
 
-    class StudentViewHolder extends RecyclerView.ViewHolder {
+    static class StudentViewHolder extends RecyclerView.ViewHolder {
         TextView tvName;
         TextView tvSurname;
         TextView tvCourse;
@@ -84,7 +84,7 @@ public class StudentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         }
     }
 
-    class HeaderViewHolder extends RecyclerView.ViewHolder {
+    static class HeaderViewHolder extends RecyclerView.ViewHolder {
         TextView tvTitle;
         public HeaderViewHolder(@NonNull View itemView) {
             super(itemView);

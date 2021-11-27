@@ -1,18 +1,25 @@
 package com.example.personalinfoactivity.models;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class StudentInfo implements Serializable {
 
-    public String Name;
-    public String Surname;
-    public String Birth;
+    public String TeacherName;
+    public String TeacherSurname;
+    public String Course;
+    public String CourseYear;
+    public String CourseHours;
+    public String CourseHoursLV;
 
-    public StudentInfo(String name, String surname, String birth )
+    public StudentInfo(String teacherName, String teacherSurname, String course, String courseYear,
+                       String courseHours, String courseHoursLV)
     {
-        this.Name = name;
-        this.Surname = surname;
-        this.Birth = birth;
+        this.TeacherName = teacherName;
+        this.TeacherSurname = teacherSurname;
+        this.Course = course;
+        this.CourseYear = courseYear;
+        this.CourseHours = courseHours;
+        this.CourseHoursLV = courseHoursLV;
     }
+
 }

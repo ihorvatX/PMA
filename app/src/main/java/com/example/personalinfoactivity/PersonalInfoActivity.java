@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
-import com.example.personalinfoactivity.models.StudentInfo;
+import com.example.personalinfoactivity.models.PersonalInfo;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class PersonalInfoActivity extends AppCompatActivity {
@@ -21,13 +21,13 @@ public class PersonalInfoActivity extends AppCompatActivity {
     public void CourseInfo(View view)
     {
         TextInputEditText nameObj = findViewById(R.id.inptName);
-        String name = nameObj.getText().toString();
         TextInputEditText surnameObj = findViewById(R.id.inptSurname);
-        String surname = surnameObj.getText().toString();
         EditText birthObj = findViewById(R.id.inptBirth);
+        String name = nameObj.getText().toString();
+        String surname = surnameObj.getText().toString();
         String birth = birthObj.getText().toString();
 
-        StudentInfo data = new StudentInfo(name,surname,birth);
+        PersonalInfo data = new PersonalInfo(name,surname,birth);
 
         Intent i = new Intent(this, StudentInfoActivity.class);
         i.putExtra("userInfo", data);
