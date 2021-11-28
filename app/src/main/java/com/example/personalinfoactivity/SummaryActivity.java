@@ -7,10 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.personalinfoactivity.models.CourseInfo;
+import com.example.personalinfoactivity.models.StudentInfo;
 import com.example.personalinfoactivity.models.Storage;
 import com.example.personalinfoactivity.models.Student;
-import com.example.personalinfoactivity.models.StudentInfo;
+import com.example.personalinfoactivity.models.PersonalInfo;
+import com.example.personalinfoactivity.models.ViewPagerStorage;
 
 public class SummaryActivity extends AppCompatActivity {
 
@@ -25,8 +26,8 @@ public class SummaryActivity extends AppCompatActivity {
 
         Intent iData = getIntent();
 
-        StudentInfo userInfo = (StudentInfo) iData.getSerializableExtra("userInfo");
-        CourseInfo courseInfo = (CourseInfo) iData.getSerializableExtra("courseInfo");
+        PersonalInfo userInfo = (PersonalInfo) iData.getSerializableExtra("userInfo");
+        StudentInfo studentInfo = (StudentInfo) iData.getSerializableExtra("courseInfo");
 
         TextView studentName = findViewById(R.id.studentName);
         TextView studentSurname = findViewById(R.id.studentSurname);
@@ -39,19 +40,19 @@ public class SummaryActivity extends AppCompatActivity {
         TextView courseHoursLV = findViewById(R.id.courseHoursLV);
 
         ime = userInfo.Name;
-        predmet = courseInfo.Course;
+        predmet = studentInfo.Course;
         prezime = userInfo.Surname;
 
         studentName.setText(userInfo.Name);
         studentSurname.setText(userInfo.Surname);
         studentBirth.setText(userInfo.Birth);
 
-        teacherName.setText(courseInfo.TeacherName);
-        teacherSurname.setText(courseInfo.TeacherSurname);
-        courseTitle.setText(courseInfo.Course);
-        courseYear.setText(courseInfo.CourseYear);
-        courseHours.setText(courseInfo.CourseHours);
-        courseHoursLV.setText(courseInfo.CourseHoursLV);
+        teacherName.setText(studentInfo.TeacherName);
+        teacherSurname.setText(studentInfo.TeacherSurname);
+        courseTitle.setText(studentInfo.Course);
+        courseYear.setText(studentInfo.CourseYear);
+        courseHours.setText(studentInfo.CourseHours);
+        courseHoursLV.setText(studentInfo.CourseHoursLV);
     }
 
 
@@ -60,6 +61,9 @@ public class SummaryActivity extends AppCompatActivity {
         Student student = new Student(ime, prezime, predmet);
         Storage spremnik = Storage.getInstance();
         spremnik.setStudents(student);
+
+        ViewPagerStorage viewPagerStorage = ViewPagerStorage.getInstance();
+        viewPagerStorage.clearData();
 
         Intent i = new Intent(this, HomeActivity.class);
         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

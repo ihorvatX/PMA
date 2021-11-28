@@ -7,12 +7,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
 import com.example.personalinfoactivity.adapter.StudentAdapter;
 import com.example.personalinfoactivity.models.Storage;
-import com.example.personalinfoactivity.models.Student;
 
 import java.util.List;
 
@@ -32,7 +29,7 @@ public class HomeActivity extends AppCompatActivity {
         mRecyclerView = (RecyclerView) findViewById(R.id.RecicleViewData);
 
         Storage StorageSingleton = Storage.getInstance();
-        List<Object> data = StorageSingleton.getStudents();
+        List<Object> data = StorageSingleton.getDataList();
 
         if(data.size() == 0)
         {
@@ -48,7 +45,7 @@ public class HomeActivity extends AppCompatActivity {
 
     public void OpenPersonalActivity(View view)
     {
-        Intent OtvoriPersonalInfo = new Intent(getApplicationContext(), PersonalInfoActivity.class);
-        startActivity(OtvoriPersonalInfo);
+       Intent i = new Intent(getApplicationContext(), CreateNewRecordActivity.class);
+        startActivity(i);
     }
 }
