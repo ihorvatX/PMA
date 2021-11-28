@@ -21,6 +21,7 @@ import com.example.personalinfoactivity.models.Storage;
 import com.example.personalinfoactivity.models.Student;
 import com.example.personalinfoactivity.models.PersonalInfo;
 import com.example.personalinfoactivity.models.SummaryInfo;
+import com.example.personalinfoactivity.models.ViewPagerStorage;
 
 
 public class SummaryFragment extends Fragment{
@@ -82,8 +83,13 @@ public class SummaryFragment extends Fragment{
                 Storage dataStorage = Storage.getInstance();
                 dataStorage.setStudents(student);
 
+                ViewPagerStorage viewPagerStorage = ViewPagerStorage.getInstance();
+                viewPagerStorage.clearData();
+
                 Intent i = new Intent(getActivity(), HomeActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+
 
                 startActivity(i);
             }

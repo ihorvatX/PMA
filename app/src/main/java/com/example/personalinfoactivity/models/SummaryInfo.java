@@ -10,6 +10,18 @@ public class SummaryInfo {
         studentInfo = studentInfoData;
     }
 
+    public SummaryInfo() {
+
+    }
+
+    public void setPersonalInfo(PersonalInfo personalInfo) {
+        this.personalInfo = personalInfo;
+    }
+
+    public void setStudentInfo(StudentInfo studentInfo) {
+        this.studentInfo = studentInfo;
+    }
+
     public PersonalInfo getPersonalInfo() {
         return personalInfo;
     }

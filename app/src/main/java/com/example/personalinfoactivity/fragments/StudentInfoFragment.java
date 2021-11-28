@@ -17,7 +17,6 @@ import com.example.personalinfoactivity.R;
 import com.example.personalinfoactivity.interfaces.StudentInfoListener;
 import com.example.personalinfoactivity.models.PersonalInfo;
 import com.example.personalinfoactivity.models.StudentInfo;
-import com.google.android.material.textfield.TextInputEditText;
 
 public class StudentInfoFragment extends Fragment {
     public StudentInfoListener handleStudentInfo;
@@ -68,6 +67,32 @@ public class StudentInfoFragment extends Fragment {
         courseHoursLVObj.addTextChangedListener(studentInfoWatcher);
     }
 
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        if(handleStudentInfo.getStudent() != null )
+        {
+            StudentInfo personalInfo = handleStudentInfo.getStudent();
+
+            if(personalInfo != null)
+            {
+                updateStudentInfo(handleStudentInfo.getStudent());
+            }
+        }
+    }
+
+    private void updateStudentInfo(StudentInfo student) {
+        teacherNameObj.setText(student.TeacherName);
+        teacherSurnameObj.setText(student.TeacherSurname);
+        courseTitleObj.setText(student.Course);
+        courseYearObj.setText(student.CourseYear);
+        courseHoursObj.setText(student.CourseHours);
+        courseHoursLVObj.setText(student.CourseHoursLV);
+    }
+
+
     @Override
     public void onDetach() {
         super.onDetach();
@@ -90,7 +115,7 @@ public class StudentInfoFragment extends Fragment {
             String courseHours = courseHoursObj.getText().toString();
             String courseHoursLV = courseHoursLVObj.getText().toString();
 
-            handleStudentInfo.setStudentInfo(new StudentInfo(teacherName, teacherSurname,courseTitle,
+            handleStudentInfo.setStudent(new StudentInfo(teacherName, teacherSurname,courseTitle,
                     courseYear, courseHours, courseHoursLV));
         }
 

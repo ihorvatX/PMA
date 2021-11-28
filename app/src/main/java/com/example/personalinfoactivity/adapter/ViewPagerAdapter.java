@@ -1,5 +1,7 @@
 package com.example.personalinfoactivity.adapter;
 
+import android.net.Uri;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
@@ -18,6 +20,7 @@ import com.example.personalinfoactivity.models.PersonalInfo;
 import com.example.personalinfoactivity.models.Student;
 import com.example.personalinfoactivity.models.StudentInfo;
 import com.example.personalinfoactivity.models.SummaryInfo;
+import com.example.personalinfoactivity.models.ViewPagerStorage;
 
 public class ViewPagerAdapter  extends FragmentStateAdapter implements PersonalInfoListener, StudentInfoListener, SummaryListener {
 
@@ -25,6 +28,9 @@ public class ViewPagerAdapter  extends FragmentStateAdapter implements PersonalI
 
    public PersonalInfo personalData;
    public StudentInfo studentData;
+   public Uri uriData;
+
+   private ViewPagerStorage viewPagerStorage = ViewPagerStorage.getInstance();
 
     public ViewPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
         super(fragmentActivity);
@@ -37,10 +43,6 @@ public class ViewPagerAdapter  extends FragmentStateAdapter implements PersonalI
 
         Fragment fragment = null;
         switch (position) {
-            case 0:
-                fragment = new PersonalInfoFragment();
-                ((PersonalInfoFragment)fragment).handlePersonalInfo = this;
-                break;
             case 1:
                 fragment = new StudentInfoFragment();
                 ((StudentInfoFragment)fragment).handleStudentInfo = this;
@@ -50,7 +52,9 @@ public class ViewPagerAdapter  extends FragmentStateAdapter implements PersonalI
                 ((SummaryFragment)fragment).data = this;
                 break;
             default:
-                return null;
+                fragment = new PersonalInfoFragment();
+                ((PersonalInfoFragment)fragment).handlePersonalInfo = this;
+                break;
         }
         return fragment;
     }
@@ -60,19 +64,34 @@ public class ViewPagerAdapter  extends FragmentStateAdapter implements PersonalI
         return NUM_FRAGMENTS;
     }
 
-
     @Override
-    public void setName(PersonalInfo personalInfo) {
-        personalData = personalInfo;
+    public void setPersonal(PersonalInfo personalInfo) {
+        viewPagerStorage.setPersonalInfo(personalInfo);
     }
 
     @Override
-    public void setStudentInfo(StudentInfo studentInfo) {
-        studentData = studentInfo;
+    public PersonalInfo getPersonal() {
+        return viewPagerStorage.getPerInfo();
     }
+
+    @Override
+    public Uri getUriPicture() {
+        return uriData;
+    }
+
+    @Override
+    public void setStudent(StudentInfo studentInfo) {
+        viewPagerStorage.SetStudentInfo(studentInfo);
+    }
+
+    @Override
+    public StudentInfo getStudent() {
+        return viewPagerStorage.getStuInfo();
+    }
+
 
     @Override
     public SummaryInfo getSummary() {
-        return new SummaryInfo(personalData,studentData);
+        return new SummaryInfo(viewPagerStorage.getPerInfo(), viewPagerStorage.getStuInfo());
     }
 }
