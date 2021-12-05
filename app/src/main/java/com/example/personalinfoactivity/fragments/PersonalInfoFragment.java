@@ -23,7 +23,7 @@ import com.example.personalinfoactivity.models.PersonalInfo;
 import com.example.personalinfoactivity.models.SummaryInfo;
 
 
-public class PersonalInfoFragment extends Fragment {
+public class PersonalInfoFragment extends Fragment{
 
     public PersonalInfoListener handlePersonalInfo;
 
